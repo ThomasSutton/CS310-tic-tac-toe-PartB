@@ -10,7 +10,7 @@ public class TicTacToeModel{
         
         X("X"), 
         O("O"), 
-        EMPTY(" ");
+        EMPTY("-");
 
         private String message;
         
@@ -74,12 +74,18 @@ public class TicTacToeModel{
         /* Create grid (width x width) as a 2D Mark array */
 
         /* INSERT YOUR CODE HERE */
+        Mark[][] grid = new Mark[width][width];
+        
 
         /* Initialize grid by filling every square with empty marks */
 
         /* INSERT YOUR CODE HERE */
+        for(int i=0; i<width; i++)
+            for(int j=0; j<width; j++){
+                grid[i][j] = Mark.EMPTY;
+            }
         
-    }
+    }   
 	
     public boolean makeMark(int row, int col) {
         
