@@ -94,6 +94,7 @@ public class TicTacToeModel{
            empty! */
         
         /* INSERT YOUR CODE HERE */
+        
 
         return false; /* remove this line! */
         
@@ -124,8 +125,8 @@ public class TicTacToeModel{
         /* Return mark from the square at the specified location */
         
         /* INSERT YOUR CODE HERE */
+        return grid[row][col];
 
-        return null; /* remove this line! */
             
     }
 	
