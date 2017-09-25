@@ -173,9 +173,50 @@ public class TicTacToeModel{
            winner */
         
         /* INSERT YOUR CODE HERE */
+        ///rows
+        for (int i = 0; i < width; i++){
+            for (int j = 0; j < width; j++){
+                if(grid[i][j] != mark){
+                    break;
+                }
+                if (j == width - 1){
+                    return true;
+                }
+            }
+        }
         
+        ///columns
+        for (int p = 0; p < width; p++){
+            for (int k = 0; k < width; k++){
+                if (grid[k][p] != mark){
+                    break;
+                }
+                if (k == width - 1){
+                    return true;
+                }
+            }
+        }
         
-
+        ///diagonal
+        for (int v = 0; v < width; v++){
+            if (grid[v][v] != mark){
+                break;
+            }
+            if (v == width - 1){
+                return true;
+            }
+        }
+        
+        ///other diagonal
+        for (int n = 0; n < width; n++){
+            if (grid[n][(width - 1) - n] != mark){
+                break;
+            }
+            if (n == width - 1){
+                return true;
+            }
+        }
+        return false;
         ///return false; /* remove this line! */
 
     }
