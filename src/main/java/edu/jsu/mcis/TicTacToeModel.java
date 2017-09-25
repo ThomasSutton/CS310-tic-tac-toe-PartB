@@ -105,8 +105,11 @@ public class TicTacToeModel{
         /* Return true if specified location is within grid bounds */
         
         /* INSERT YOUR CODE HERE */
-
-        return false; /* remove this line! */
+        if (grid[row][col] == Mark.EMPTY){
+            return true;
+        }
+        return false;
+       /// return false; /* remove this line! */
         
     }
 	
@@ -115,16 +118,24 @@ public class TicTacToeModel{
         /* Return true if square at specified location is marked */
         
         /* INSERT YOUR CODE HERE */
-
-        return false; /* remove this line! */
-            
+        if (grid[row][col] == Mark.X){
+            return true;
+        }
+        else if (grid[row][col] == Mark.O){
+            return true;
+        }
+        return false;
     }
+        ///return false; /* remove this line! */
+            
+    
 	
     public Mark getMark(int row, int col) {
         
         /* Return mark from the square at the specified location */
         
         /* INSERT YOUR CODE HERE */
+        
         return grid[row][col];
 
             
@@ -148,8 +159,10 @@ public class TicTacToeModel{
            winner */
         
         /* INSERT YOUR CODE HERE */
+        
+        
 
-        return false; /* remove this line! */
+        ///return false; /* remove this line! */
 
     }
 	
@@ -158,8 +171,16 @@ public class TicTacToeModel{
         /* Check the squares of the board to see if the game is a tie */
 
         /* INSERT YOUR CODE HERE */
+        for (int i = 0; i < 3; i++){
+            for (int j=0; j < 3; j++){
+                if(grid[i][j] == Mark.EMPTY){
+                    return false;
+                }
+            }
+        }
+        return true;
 
-        return false; /* remove this line! */
+        ///return false; /* remove this line! */
         
     }
 
