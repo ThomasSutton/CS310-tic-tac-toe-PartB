@@ -94,16 +94,23 @@ public class TicTacToeModel{
            empty! */
         
         /* INSERT YOUR CODE HERE */
-        if ((!isSquareMarked(row, col)) && (isValidSquare(row, col))){
-            if(xTurn){
-                grid[row][col] = Mark.X;
-            }
-            else{
-                grid[row][col] = Mark.O;
-            }
+        try{
+            if ((!isSquareMarked(row, col)) && (isValidSquare(row, col))){
+                if(xTurn){
+                    grid[row][col] = Mark.X;
+                    xTurn = !xTurn;
+                }
+                else{
+                    grid[row][col] = Mark.O;
+                    xTurn = !xTurn;
+                }
             return true;
-        }
+            }
         
+        }
+        catch (Exception e){
+            
+        }
 
         ///return false; /* remove this line! */
        return false; 
@@ -114,10 +121,9 @@ public class TicTacToeModel{
         /* Return true if specified location is within grid bounds */
         
         /* INSERT YOUR CODE HERE */
-        if (grid[row][col] == Mark.EMPTY){
-            return true;
-        }
-        return false;
+        
+        return (row < width) && (row >= 0) && (col < width) && (col >= 0); 
+        
        /// return false; /* remove this line! */
         
     }
@@ -127,7 +133,7 @@ public class TicTacToeModel{
         /* Return true if square at specified location is marked */
         
         /* INSERT YOUR CODE HERE */
-        return grid[row][col] != Mark.EMPTY;
+        return (!grid[row][col].equals(Mark.EMPTY));
     }
         ///return false; /* remove this line! */
             
@@ -174,10 +180,10 @@ public class TicTacToeModel{
         
         /* INSERT YOUR CODE HERE */
         ///rows
-        for (int i = 0; i < width; i++){
+        checkRow: for (int i = 0; i < width; i++){
             for (int j = 0; j < width; j++){
                 if(grid[i][j] != mark){
-                    break;
+                    break checkRow;
                 }
                 if (j == width - 1){
                     return true;
@@ -186,10 +192,10 @@ public class TicTacToeModel{
         }
         
         ///columns
-        for (int p = 0; p < width; p++){
+        checkCol: for (int p = 0; p < width; p++){
             for (int k = 0; k < width; k++){
                 if (grid[k][p] != mark){
-                    break;
+                    break checkCol;
                 }
                 if (k == width - 1){
                     return true;
@@ -198,9 +204,9 @@ public class TicTacToeModel{
         }
         
         ///diagonal
-        for (int v = 0; v < width; v++){
+        checkDiag: for (int v = 0; v < width; v++){
             if (grid[v][v] != mark){
-                break;
+                break checkDiag;
             }
             if (v == width - 1){
                 return true;
@@ -208,9 +214,9 @@ public class TicTacToeModel{
         }
         
         ///other diagonal
-        for (int n = 0; n < width; n++){
+        checkAnti: for (int n = 0; n < width; n++){
             if (grid[n][(width - 1) - n] != mark){
-                break;
+                break checkAnti;
             }
             if (n == width - 1){
                 return true;
@@ -228,7 +234,7 @@ public class TicTacToeModel{
         /* INSERT YOUR CODE HERE */
         for (int i = 0; i < 3; i++){
             for (int j=0; j < 3; j++){
-                if(grid[i][j] == Mark.EMPTY){
+                if(grid[i][j].equals(Mark.EMPTY)){
                     return false;
                 }
             }
