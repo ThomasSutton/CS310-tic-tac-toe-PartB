@@ -32,6 +32,16 @@ public class TicTacToeView extends JPanel implements ActionListener {
            "squaresPanel" JPanel created earlier. */
         
         /* INSERT CODE HERE */
+        for (int x = 0; x < width; x++){
+            for (int y = 0; y < width; y++){
+                squares[x][y] = new JButton();
+                squares[x][y].addActionListener(this);
+                squares[x][y].setName("Square" + x + y);
+                squares[x][y].setPreferredSize(new Dimension(64, 64));
+                squaresPanel.add(squares[x][y]);
+                
+            }
+        }
         
         add(squaresPanel);
         add(resultLabel);
@@ -51,6 +61,7 @@ public class TicTacToeView extends JPanel implements ActionListener {
            convert both to Integers!) */
 
         /* INSERT CODE HERE */
+        
            
         /* Call makeMark() to place the mark in the Model */
         
