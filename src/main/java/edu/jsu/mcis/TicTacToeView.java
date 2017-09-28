@@ -59,13 +59,18 @@ public class TicTacToeView extends JPanel implements ActionListener {
            should all be named "SquareXY", so the ROW should be extracted from
            position 6 of this string, and the COL from position 7.  Remember to
            convert both to Integers!) */
+        
 
         /* INSERT CODE HERE */
-        
+        int row;
+        int col;
+        row = Character.getNumericValue(name.charAt(6));
+        col = Character.getNumericValue(name.charAt(7));
            
         /* Call makeMark() to place the mark in the Model */
         
         /* INSERT CODE HERE */
+        model.makeMark(row, col);
 
         /* Update the squares of the View using the "updateSquares()" method
            (see below); this is the equivalent of re-printing the grid to the
