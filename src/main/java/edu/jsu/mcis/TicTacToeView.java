@@ -88,6 +88,14 @@ public class TicTacToeView extends JPanel implements ActionListener {
            JButton class provides a "setEnabled()" method for this.) */
            
         /* INSERT CODE HERE */
+        if (model.isGameOver()){
+            showResult(model.getResult());
+            for (int x = 0; x < model.getWidth(); x++){
+                for (int y = 0; y < model.getWidth(); y++){
+                    squares[x][y].setEnabled(false);
+                }
+            }
+        }
         
     }
         
