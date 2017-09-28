@@ -106,7 +106,11 @@ public class TicTacToeView extends JPanel implements ActionListener {
            by "getMark()" (to update the View to match the Model) */
            
         /* INSERT CODE HERE */
-
+        for (int x = 0; x < model.getWidth(); x++){
+            for (int y = 0; y < model.getWidth(); y++){
+                 squares[x][y].setText(model.getMark(x, y));   
+            }
+        }
     }
         
     public void showResult(String message) {
